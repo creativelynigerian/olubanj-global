@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { title: "Visa Assistance", body: "Comprehensive visa consultancy to get your documentation approved quickly and correctly.", cta: "Apply Now" },
+  { title: "Travel Planning", body: "Tailored itineraries, flight reservations, and hotel bookings for a hassle-free trip.", cta: "Book Today" },
+  { title: "Documentation Support", body: "From application forms to supporting documents — we handle every detail.", cta: "Get Help" },
+];
+
+const testimonials = [
+  { name: "Adaeze O.", quote: "Olubanj made my visa application straightforward and stress-free. Professional and attentive to every detail." },
+  { name: "Tunde A.", quote: "Thanks to their personalized travel consultation, I enjoyed a hassle-free trip from start to finish." },
+  { name: "Chinelo M.", quote: "Their customer service is exceptional — prompt, professional, and reassuring throughout." },
+];
+---
+<BaseLayout title="Your Gateway to Global Travel" description="Seamless international travel solutions — visa assistance, travel planning, and documentation support tailored to your needs.">
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Trusted Travel Partner</p>
+      <h1>Your Gateway to <span>Global Travel</span></h1>
+      <p class="lead">Seamless international travel solutions tailored to your needs. Trust Olubanj Global Services to guide you every step of the way.</p>
+      <div class="hero-ctas">
+        <a href="/services" class="btn">Explore Services</a>
+        <a href="/contact" class="btn btn-outline">Talk to an Expert</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Our Key Services</h2>
+      <p class="muted">Dedicated to providing comprehensive travel solutions tailored to your needs.</p>
+      <div class="grid-3">
+        {services.map(s => (
+          <article class="card">
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+            <a href="/services" class="link">{s.cta} →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mission">
+    <div class="container">
+      <h2>Our Commitment</h2>
+      <p>At Olubanj Global Services, our mission is to deliver dependable, professional, and personalized travel solutions that meet the unique needs of each client — making international travel accessible and stress-free.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <p class="muted">Hear from satisfied clients who have experienced our dedicated and professional travel support.</p>
+      <div class="grid-3">
+        {testimonials.map(t => (
+          <blockquote class="card quote">
+            <p>“{t.quote}”</p>
+            <cite>— {t.name}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { background: linear-gradient(135deg, var(--brand-soft), #fff); padding-block: clamp(4rem, 9vw, 8rem); text-align: center; }
+  .hero-inner { max-width: 760px; margin-inline: auto; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .15em; font-size: .8rem; color: var(--brand); font-weight: 600; margin-bottom: 1rem; }
+  .hero h1 { font-size: clamp(2.25rem, 5.5vw, 3.75rem); margin-bottom: 1.25rem; }
+  .hero h1 span { color: var(--brand); }
+  .lead { font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem; }
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .card { background: #fff; border: 1px solid #eef2f1; border-radius: var(--radius); padding: 1.75rem; transition: box-shadow .2s ease; }
+  .card:hover { box-shadow: 0 8px 24px rgba(15,118,110,.08); }
+  .card h3 { margin-bottom: .75rem; }
+  .link { display: inline-block; margin-top: 1rem; font-weight: 600; }
+  .muted { color: var(--muted); margin-top: .5rem; }
+  .mission { background: var(--brand-soft); }
+  .mission .container { max-width: 760px; text-align: center; }
+  .mission p { color: var(--muted); margin-top: 1rem; }
+  .quote { font-style: italic; }
+  .quote cite { display: block; margin-top: 1rem; font-style: normal; font-weight: 600; color: var(--brand); }
+</style>
